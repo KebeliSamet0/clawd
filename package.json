@@ -1,15 +1,38 @@
 {
   "name": "claude-pet",
   "version": "1.0.0",
-  "description": "A chaotic little Claude mascot that lives on your desktop",
+  "description": "A pixel-art Claude mascot that lives on your desktop",
   "main": "main.js",
+  "bin": {
+    "claude-pet": "./bin/claude-pet.js"
+  },
+  "files": [
+    "main.js",
+    "preload.js",
+    "renderer/",
+    "assets/",
+    "bin/"
+  ],
   "scripts": {
-    "setup": "bash setup.sh",
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "desktop-pet",
+    "electron",
+    "pixel-art",
+    "mascot",
+    "windows"
+  ],
+  "author": "KebeliSamet0",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^30.0.0"
   },
   "devDependencies": {
-    "electron": "^30.0.0",
     "electron-builder": "^24.13.3"
   }
 }

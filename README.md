@@ -22,6 +22,13 @@ Transparent, frameless, always-on-top. Wanders around your screen, plays animati
 
 Grab the latest installer from [Releases](../../releases/latest).
 
+Or run via npm:
+
+```bash
+npm install -g claude-pet
+claude-pet
+```
+
 ## Features
 
 - Transparent & frameless window — only the character is visible
