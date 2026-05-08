@@ -1,54 +1,52 @@
-const STATES = {
-    'idle': '../assets/gif/clawd-idle.gif',
-    'reading': '../assets/gif/clawd-idle-reading.gif',
-    'happy': '../assets/gif/clawd-happy.gif',
-    'thinking': '../assets/gif/clawd-thinking.gif',
-    'sleeping': '../assets/gif/clawd-sleeping.gif',
-    'typing': '../assets/gif/clawd-typing.gif',
-    'sweeping': '../assets/gif/clawd-sweeping.gif',
-    'juggling': '../assets/gif/clawd-juggling.gif'
-};
+const rawGifs = window.electronAPI.getGifs();
 
-// Movement states
-const MOVE_STATES = ['idle', 'reading', 'happy']; // These will trigger movement in motion.js
-const STATIONARY_STATES = ['thinking', 'sleeping', 'typing', 'sweeping', 'juggling'];
+const MOVE_KEYWORDS = ['idle', 'happy', 'reading'];
+
+const STATES = {};
+rawGifs.forEach(f => {
+    const key = f.replace('.gif', '');
+    STATES[key] = `../assets/gif/${f}`;
+});
+
+const MOVE_STATES = Object.keys(STATES).filter(k =>
+    MOVE_KEYWORDS.some(kw => k.includes(kw))
+);
+const STATIONARY_STATES = Object.keys(STATES).filter(k =>
+    !MOVE_KEYWORDS.some(kw => k.includes(kw))
+);
 
 const container = document.getElementById('pet-container');
 const petImg = document.getElementById('pet-img');
 
-let currentState = 'idle';
+let currentState = 'clawd-idle';
+let recentStates = [];
 
 function setState(newState) {
     if (!STATES[newState]) return;
-    
+
     container.classList.remove(currentState);
     container.classList.add(newState);
-    
+
     petImg.src = STATES[newState];
     currentState = newState;
-    
-    console.log(`State changed to: ${newState}`);
 
-    // Schedule next state change
-    const nextTimeout = Math.random() * 15000 + 10000; // Longer duration (10-25s) for stability
+    recentStates = [...recentStates.slice(-3), newState];
+
+    const nextTimeout = Math.random() * 15000 + 10000;
     setTimeout(pickRandomState, nextTimeout);
 }
 
 function pickRandomState() {
-    const keys = Object.keys(STATES);
-    let next = keys[Math.floor(Math.random() * keys.length)];
-    
-    // Don't pick the same state twice in a row if possible
-    if (next === currentState) {
-        next = keys[Math.floor(Math.random() * keys.length)];
-    }
-    
+    const keys = Object.keys(STATES).filter(k => !recentStates.includes(k));
+    const pool = keys.length > 0 ? keys : Object.keys(STATES);
+    const next = pool[Math.floor(Math.random() * pool.length)];
     setState(next);
 }
 
-// Initial state
 window.addEventListener('load', () => {
-    setState('idle');
+    const keys = Object.keys(STATES);
+    const initial = keys.find(k => k.includes('idle')) || keys[0];
+    setState(initial);
 });
 
 window.getCurrentState = () => currentState;
