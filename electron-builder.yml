@@ -4,6 +4,9 @@ directories:
   output: dist
 win:
   target: nsis
+  icon: assets/tray-icon.ico
 nsis:
   oneClick: true
   perMachine: false
+  installerIcon: assets/tray-icon.ico
+  uninstallerIcon: assets/tray-icon.ico
