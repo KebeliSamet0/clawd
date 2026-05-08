@@ -14,6 +14,8 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload installer to release
         uses: softprops/action-gh-release@v2
         with:
