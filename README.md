@@ -8,7 +8,13 @@
   <img src="assets/gif/clawd-sleeping.gif" width="120" alt="sleeping"/>
 </p>
 
-<p align="center"><i>A chaotic little Claude mascot that lives on your Windows desktop.</i></p>
+<p align="center"><i>A pixel-art Claude mascot that lives on your Windows desktop.</i></p>
+
+<p align="center">
+  <a href="https://github.com/KebeliSamet0/clawd/releases/latest"><img src="https://img.shields.io/github/v/release/KebeliSamet0/clawd" alt="Release"/></a>
+  <img src="https://img.shields.io/badge/platform-Windows-blue" alt="Platform"/>
+  <a href="https://github.com/KebeliSamet0/clawd/stargazers"><img src="https://img.shields.io/github/stars/KebeliSamet0/clawd?style=flat&color=yellow" alt="Stars"/></a>
+</p>
 
 Transparent, frameless, always-on-top. Wanders around your screen, plays animations, lives in your system tray.
 
