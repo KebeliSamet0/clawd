@@ -1,0 +1,15 @@
+{
+  "name": "claude-pet",
+  "version": "1.0.0",
+  "description": "A chaotic little Claude mascot that lives on your desktop",
+  "main": "main.js",
+  "scripts": {
+    "setup": "bash setup.sh",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}

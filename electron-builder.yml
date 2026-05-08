@@ -1,0 +1,9 @@
+appId: com.claudepet.app
+productName: ClaudePet
+directories:
+  output: dist
+win:
+  target: nsis
+nsis:
+  oneClick: true
+  perMachine: false
