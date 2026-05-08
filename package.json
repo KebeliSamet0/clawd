@@ -1,10 +1,10 @@
 {
-  "name": "claude-pet",
+  "name": "clawd-desktop",
   "version": "1.0.0",
   "description": "A pixel-art Claude mascot that lives on your desktop",
   "main": "main.js",
   "bin": {
-    "claude-pet": "./bin/claude-pet.js"
+    "clawd-desktop": "./bin/claude-pet.js"
   },
   "files": [
     "main.js",

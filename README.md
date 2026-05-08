@@ -25,8 +25,8 @@ Grab the latest installer from [Releases](../../releases/latest).
 Or run via npm:
 
 ```bash
-npm install -g claude-pet
-claude-pet
+npm install -g clawd-desktop
+clawd-desktop
 ```
 
 ## Features
