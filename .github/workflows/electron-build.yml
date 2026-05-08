@@ -14,6 +14,8 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx electron-builder --publish never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload installer to release
         uses: softprops/action-gh-release@v2
         with:
