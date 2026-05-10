@@ -1,6 +1,6 @@
 {
   "name": "clawd-desktop",
-  "version": "1.0.0",
+  "version": "1.0.9",
   "description": "A pixel-art Claude mascot that lives on your desktop",
   "main": "main.js",
   "bin": {
