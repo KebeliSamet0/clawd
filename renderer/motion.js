@@ -1,24 +1,42 @@
 let screenWidth = 1920;
 let screenHeight = 1080;
-let posX = 0;
-let posY = 0;
-
 const winSize = 128;
+let homeX = 20;
+let homeY = 1000;
+
+function hide() {
+    window.electronAPI.moveWindow({ x: -500, y: -500 });
+}
+
+function show() {
+    window.electronAPI.moveWindow({ x: homeX, y: homeY });
+}
+
+function appear() {
+    show();
+    window.playOnce(() => {
+        hide();
+        scheduleAppear();
+    });
+}
+
+function scheduleAppear() {
+    const hiddenFor = Math.random() * 60000 + 60000; // 1-2 dakika gizli
+    setTimeout(appear, hiddenFor);
+}
 
 async function init() {
     const size = await window.electronAPI.getScreenSize();
     screenWidth = size.width;
     screenHeight = size.height;
-    
-    // Sabit Pozisyon: Sol Alt Köşe
-    posX = 50; 
-    // Ekranın en altından biraz yukarıda (Taskbar üstü gibi)
-    posY = screenHeight - winSize - 20; 
-    
-    // Pozisyonu bir kez ayarla ve bırak
-    window.electronAPI.moveWindow({ x: posX, y: posY });
-    
-    console.log(`Position frozen at: ${posX}, ${posY}`);
+
+    homeX = 20;
+    homeY = screenHeight - winSize - 60;
+
+    hide();
+
+    // İlk açılışta 1 saniye sonra çık
+    setTimeout(appear, 1000);
 }
 
 init();
