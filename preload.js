@@ -10,19 +10,23 @@ function getGifDuration(filePath) {
       delay += buf[i+4] | (buf[i+5] << 8);
     }
   }
-  return Math.max(delay * 10, 1000); // centiseconds → ms, min 1s
+  return Math.max(delay * 10, 1000);
 }
 
 contextBridge.exposeInMainWorld('electronAPI', {
   moveWindow: (pos) => ipcRenderer.send('move-window', pos),
   getScreenSize: () => ipcRenderer.invoke('get-screen-size'),
   getGifs: () => {
-    const gifDir = path.join(__dirname, 'assets', 'gif');
-    return fs.readdirSync(gifDir)
-      .filter(f => f.endsWith('.gif'))
-      .map(f => ({
-        name: f,
-        duration: getGifDuration(path.join(gifDir, f))
-      }));
+    try {
+      const gifDir = path.join(__dirname, 'assets', 'gif');
+      return fs.readdirSync(gifDir)
+        .filter(f => f.endsWith('.gif'))
+        .map(f => ({
+          name: f,
+          duration: getGifDuration(path.join(gifDir, f))
+        }));
+    } catch {
+      return [];
+    }
   }
 });

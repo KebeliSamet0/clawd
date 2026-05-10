@@ -1,11 +1,11 @@
-let screenWidth = 1920;
 let screenHeight = 1080;
 const winSize = 128;
 let homeX = 20;
 let homeY = 1000;
+let offscreenY = 9999;
 
 function hide() {
-    window.electronAPI.moveWindow({ x: -500, y: -500 });
+    window.electronAPI.moveWindow({ x: homeX, y: offscreenY });
 }
 
 function show() {
@@ -13,6 +13,7 @@ function show() {
 }
 
 function appear() {
+    if (typeof window.playOnce !== 'function') { scheduleAppear(); return; }
     show();
     window.playOnce(() => {
         hide();
@@ -21,21 +22,18 @@ function appear() {
 }
 
 function scheduleAppear() {
-    const hiddenFor = Math.random() * 60000 + 60000; // 1-2 dakika gizli
+    const hiddenFor = Math.random() * 60000 + 60000;
     setTimeout(appear, hiddenFor);
 }
 
 async function init() {
     const size = await window.electronAPI.getScreenSize();
-    screenWidth = size.width;
     screenHeight = size.height;
-
     homeX = 20;
     homeY = screenHeight - winSize - 60;
+    offscreenY = screenHeight + 500;
 
     hide();
-
-    // İlk açılışta 1 saniye sonra çık
     setTimeout(appear, 1000);
 }
 
