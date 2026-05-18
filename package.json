@@ -21,11 +21,21 @@
   "keywords": [
     "claude",
     "claude-code",
+    "anthropic",
     "desktop-pet",
     "electron",
     "pixel-art",
     "mascot",
-    "windows"
+    "windows",
+    "system-tray",
+    "animated",
+    "companion",
+    "tamagotchi",
+    "cursor",
+    "codex",
+    "ai-mascot",
+    "always-on-top",
+    "transparent-window"
   ],
   "author": "KebeliSamet0",
   "license": "MIT",
