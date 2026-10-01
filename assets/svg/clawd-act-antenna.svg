@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Antenna: waves an antenna around looking for signal; the signal bars flicker and die. 3s loop. -->
+  <defs>
+    <style>
+      .rod { transform-origin: 14px 10px; animation: search 3s infinite ease-in-out; }
+      .eyes { animation: follow 3s infinite ease-in-out; }
+      .bar1 { animation: bar1 3s infinite steps(1, end); }
+      .bar2 { animation: bar2 3s infinite steps(1, end); }
+      .cross { animation: cross 3s infinite steps(1, end); }
+
+      @keyframes search {
+        0%, 100% { transform: rotate(-18deg); }
+        25% { transform: rotate(14deg); }
+        50% { transform: rotate(-6deg); }
+        75% { transform: rotate(20deg); }
+      }
+      @keyframes follow {
+        0%, 100% { transform: translate(0, -0.5px); }
+        25%, 75% { transform: translate(1px, -1px); }
+        50% { transform: translate(0.5px, -1px); }
+      }
+      @keyframes bar1 {
+        0%, 20%, 45%, 70% { fill: #5D6B79; }
+        30%, 55%, 80% { fill: #3FB950; }
+      }
+      @keyframes bar2 {
+        0%, 58%, 66% { fill: #5D6B79; }
+        60% { fill: #3FB950; }
+      }
+      @keyframes cross {
+        0%, 25%, 50%, 75% { opacity: 1; }
+        30%, 55%, 80% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+    <rect x="2" y="6" width="11" height="7"/>
+    <rect x="0" y="9" width="2" height="2"/>
+  </g>
+  <g class="eyes">
+    <rect x="4" y="8" width="1" height="2"/>
+    <rect x="10" y="8" width="1" height="2"/>
+  </g>
+
+  <g class="rod">
+    <rect x="13.7" y="-6" width="0.7" height="15" fill="#9AA5B1"/>
+    <rect x="13.1" y="-7.5" width="2" height="2" fill="#E8453C"/>
+    <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+  </g>
+
+  <!-- signal bars: mostly empty, now and then one lights up -->
+  <rect class="bar1" x="-8" y="0" width="1.5" height="2"/>
+  <rect class="bar2" x="-6" y="-1.5" width="1.5" height="3.5" fill="#5D6B79"/>
+  <rect x="-4" y="-3" width="1.5" height="5" fill="#5D6B79"/>
+  <g class="cross" fill="#E8453C">
+    <rect x="-3.5" y="-6.25" width="3" height="0.7" transform="rotate(45 -2 -5.9)"/>
+    <rect x="-3.5" y="-6.25" width="3" height="0.7" transform="rotate(-45 -2 -5.9)"/>
+  </g>
+</svg>

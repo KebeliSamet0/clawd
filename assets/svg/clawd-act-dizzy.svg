@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Dizzy: X eyes, swaying, stars circling its head. 2s loop. -->
+  <defs>
+    <style>
+      .sway { transform-origin: 7.5px 15px; animation: sway 2s infinite ease-in-out; }
+      .star { animation: orbit 1.5s infinite linear; }
+      .st2 { animation-delay: -0.5s; }
+      .st3 { animation-delay: -1s; }
+
+      @keyframes sway {
+        0%, 100% { transform: rotate(-8deg); }
+        50% { transform: rotate(8deg); }
+      }
+      /* an ellipse around the head: front half big and bright, back half small and faint */
+      @keyframes orbit {
+        0% { transform: translate(7px, 4.5px) scale(1); opacity: 1; }
+        25% { transform: translate(14px, 3px) scale(0.8); opacity: 0.9; }
+        50% { transform: translate(7px, 1.5px) scale(0.55); opacity: 0.5; }
+        75% { transform: translate(0px, 3px) scale(0.8); opacity: 0.9; }
+        100% { transform: translate(7px, 4.5px) scale(1); opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g class="sway">
+    <g fill="#DE886D">
+      <rect x="3" y="13" width="1" height="2"/>
+      <rect x="5" y="13" width="1" height="2"/>
+      <rect x="9" y="13" width="1" height="2"/>
+      <rect x="11" y="13" width="1" height="2"/>
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+      <rect x="13" y="9" width="2" height="2"/>
+    </g>
+    <g fill="#000000">
+      <rect x="3.6" y="8.75" width="2" height="0.5" transform="rotate(45 4.6 9)"/>
+      <rect x="3.6" y="8.75" width="2" height="0.5" transform="rotate(-45 4.6 9)"/>
+      <rect x="9.4" y="8.75" width="2" height="0.5" transform="rotate(45 10.4 9)"/>
+      <rect x="9.4" y="8.75" width="2" height="0.5" transform="rotate(-45 10.4 9)"/>
+    </g>
+  </g>
+
+  <g fill="#FFD23F">
+    <g class="star"><rect x="-0.5" y="-1.5" width="1" height="3"/><rect x="-1.5" y="-0.5" width="3" height="1"/></g>
+    <g class="star st2"><rect x="-0.5" y="-1.5" width="1" height="3"/><rect x="-1.5" y="-0.5" width="3" height="1"/></g>
+    <g class="star st3"><rect x="-0.5" y="-1.5" width="1" height="3"/><rect x="-1.5" y="-0.5" width="3" height="1"/></g>
+  </g>
+</svg>

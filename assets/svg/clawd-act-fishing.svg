@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Fishing: fishes off the edge (the taskbar), gets a bite, reels in... an old shoe. 6s loop. -->
+  <defs>
+    <style>
+      .rod { transform-origin: 14px 10px; animation: reel 6s infinite ease-in-out; }
+      .line { animation: line 6s infinite ease-in-out; }
+      .catch { animation: catch 6s infinite ease-in-out; }
+      .bob { animation: bob 1.2s infinite ease-in-out; }
+      .bobber { animation: bobber 6s infinite steps(1, end); }
+      .shoe { animation: shoe 6s infinite steps(1, end); }
+      .alert { animation: alert 6s infinite steps(1, end); }
+      .eyes { transform-origin: 7.5px 9px; animation: meh 6s infinite; }
+
+      @keyframes reel {
+        0%, 54% { transform: rotate(0deg); }
+        66%, 92% { transform: rotate(-28deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes line {
+        0%, 54% { height: 16px; }
+        66%, 92% { height: 6px; }
+        100% { height: 16px; }
+      }
+      @keyframes catch {
+        0%, 46% { transform: translateY(0); }
+        50%, 54% { transform: translateY(1.5px); }
+        66%, 92% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(0.5px); }
+      }
+      @keyframes bobber { 0%, 58% { opacity: 1; } 59%, 97% { opacity: 0; } 98%, 100% { opacity: 1; } }
+      @keyframes shoe { 0%, 58% { opacity: 0; } 59%, 97% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes alert { 0%, 48% { opacity: 0; } 49%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }
+      @keyframes meh {
+        0%, 72%, 96%, 100% { transform: scaleY(1); }
+        74%, 94% { transform: scaleY(0.35); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+    <rect x="2" y="6" width="11" height="7"/>
+    <rect x="0" y="9" width="2" height="2"/>
+  </g>
+  <g class="eyes">
+    <rect x="4" y="8" width="1" height="2"/>
+    <rect x="10" y="8" width="1" height="2"/>
+  </g>
+
+  <g class="rod">
+    <line x1="14" y1="10" x2="25" y2="0" stroke="#8B5A3C" stroke-width="0.7"/>
+    <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+  </g>
+  <!-- the line hangs from the rod tip; it shortens when reeling in -->
+  <rect class="line" x="24.85" y="0" width="0.3" height="16" fill="#5D6B79"/>
+  <g class="catch">
+    <g class="bob">
+      <g class="bobber">
+        <rect x="24.2" y="15.5" width="1.6" height="1" fill="#E8453C"/>
+        <rect x="24.2" y="16.5" width="1.6" height="1" fill="#FFFAF2"/>
+      </g>
+      <g class="shoe">
+        <rect x="24" y="14.5" width="2" height="3" fill="#6B4226"/>
+        <rect x="24" y="16.5" width="4" height="1.5" fill="#6B4226"/>
+        <rect x="24" y="17.5" width="4" height="0.5" fill="#3A2414"/>
+        <rect x="24.4" y="15" width="1.2" height="0.4" fill="#C9BFB0"/>
+      </g>
+    </g>
+  </g>
+  <g class="alert" fill="#E8453C">
+    <rect x="7" y="0" width="1" height="3"/>
+    <rect x="7" y="3.6" width="1" height="1"/>
+  </g>
+</svg>

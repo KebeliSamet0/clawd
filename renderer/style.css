@@ -6,7 +6,12 @@ html, body {
     overflow: hidden;
     background: transparent !important;
     user-select: none;
-    -webkit-app-region: drag;
+    cursor: grab;
+}
+
+/* While the pet is dragged (renderer/input.js). */
+body.held {
+    cursor: grabbing;
 }
 
 #pet-container {
@@ -19,7 +24,193 @@ html, body {
 }
 
 #pet-container img {
-    width: 128px;
-    height: 128px;
+    width: 100%;
+    height: 100%;
     image-rendering: pixelated;
+    transform-origin: 50% 90%;
+    -webkit-user-drag: none;
+}
+
+/* Session number, shown only when several pets are on screen. */
+#badge {
+    display: none;
+    position: absolute;
+    top: 36%;
+    right: 10%;
+    min-width: 18px;
+    padding: 1px 4px;
+    border-radius: 9px;
+    background: #d97757;
+    color: #fff;
+    font: bold 12px/16px Consolas, monospace;
+    text-align: center;
+}
+
+#badge.show {
+    display: block;
+}
+
+/* --- renderer/effects.js -------------------------------------------------- */
+
+#fx {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    animation: fx-fly 1s ease-out both;
+}
+
+@keyframes fx-fly {
+    from { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+    70% { opacity: 1; }
+    to {
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(1);
+        opacity: 0;
+    }
+}
+
+#bubble {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    max-width: 92%;
+    box-sizing: border-box;
+    padding: 3px 7px;
+    border: 2px solid #2b2118;
+    border-radius: 8px;
+    background: #fffaf2;
+    color: #2b2118;
+    font: 600 clamp(10px, 6.5vw, 18px)/1.25 "Segoe UI", sans-serif;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, 4px);
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+#bubble.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Tail pointing down at the pet. */
+#bubble::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 8px;
+    height: 8px;
+    margin-left: -5px;
+    border-right: 2px solid #2b2118;
+    border-bottom: 2px solid #2b2118;
+    background: #fffaf2;
+    transform: rotate(45deg);
+}
+
+#bubble-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- renderer/games.js ---------------------------------------------------- */
+
+#game {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+#game button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    pointer-events: auto;
+    cursor: pointer;
+    font: clamp(14px, 11vw, 28px)/1 "Segoe UI Emoji", "Segoe UI", sans-serif;
+}
+
+#game .choice {
+    width: 22%;
+    aspect-ratio: 1;
+    border: 2px solid #2b2118;
+    border-radius: 50%;
+    background: #fffaf2;
+    box-shadow: 0 2px 0 #2b2118;
+    transition: transform 0.1s;
+}
+
+#game .choice:hover {
+    transform: translate(-50%, -56%) scale(1.08);
+}
+
+#game .bug {
+    border: none;
+    background: transparent;
+    animation: bug-in 0.15s ease-out;
+}
+
+#game .bug.hit {
+    cursor: default;
+    animation: bug-hit 0.3s ease-out forwards;
+}
+
+@keyframes bug-in {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes bug-hit {
+    to { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
+}
+
+#game .banner {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(43, 33, 24, 0.85);
+    color: #fff;
+    font: 700 clamp(12px, 10vw, 26px)/1.2 "Segoe UI Emoji", "Segoe UI", sans-serif;
+    white-space: nowrap;
+}
+
+#game .prize {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font: clamp(14px, 12vw, 30px)/1 "Segoe UI Emoji", sans-serif;
+    animation: bug-in 0.3s ease-out;
+}
+
+#pet-img.wobble {
+    animation: wobble 0.6s ease-in-out infinite;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: rotate(-6deg) translateX(-4%); }
+    50% { transform: rotate(6deg) translateX(4%); }
+}
+
+#pet-img.bounce {
+    animation: bounce 0.9s ease-out;
+}
+
+@keyframes bounce {
+    0% { transform: none; }
+    20% { transform: scale(1.15, 0.8); }
+    45% { transform: translateY(-14%) scale(0.95, 1.05); }
+    70% { transform: scale(1.08, 0.92); }
+    85% { transform: translateY(-4%); }
+    100% { transform: none; }
 }

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Bubbles: blows small bubbles, then a big one closes around it... and pops. 5s loop. -->
+  <defs>
+    <style>
+      .b { opacity: 0; animation: rise 2.5s infinite ease-out; }
+      .b2 { animation-delay: 0.5s; }
+      .b3 { animation-delay: 1s; }
+      .big { transform-origin: 7.5px 10px; animation: big 5s infinite ease-out; }
+      .pop { transform-origin: 7.5px 10px; animation: pop 5s infinite; }
+      .eyes { transform-origin: 7.5px 9px; animation: surprise 5s infinite; }
+      .mouth { transform-origin: 7.5px 11.5px; animation: blow 1.25s infinite; }
+
+      @keyframes rise {
+        0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+        10% { opacity: 1; }
+        80% { opacity: 0.9; transform: translate(4px, -12px) scale(1); }
+        100% { opacity: 0; transform: translate(5px, -15px) scale(1.1); }
+      }
+      @keyframes big {
+        0%, 50% { transform: scale(0); opacity: 0; }
+        66% { transform: scale(1); opacity: 1; }
+        72% { transform: scale(0.95, 1.05); }
+        78%, 84% { transform: scale(1); opacity: 1; }
+        86%, 100% { transform: scale(1.2); opacity: 0; }
+      }
+      @keyframes pop {
+        0%, 84% { opacity: 0; transform: scale(0.8); }
+        86% { opacity: 1; transform: scale(1); }
+        96%, 100% { opacity: 0; transform: scale(1.5); }
+      }
+      @keyframes surprise {
+        0%, 66%, 92%, 100% { transform: scaleY(1); }
+        70%, 88% { transform: scaleY(1.4); }
+      }
+      @keyframes blow {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(0.6); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+    <rect x="2" y="6" width="11" height="7"/>
+    <rect x="0" y="9" width="2" height="2"/>
+    <rect x="13" y="9" width="2" height="2"/>
+  </g>
+  <g class="eyes">
+    <rect x="4" y="8" width="1" height="2"/>
+    <rect x="10" y="8" width="1" height="2"/>
+  </g>
+  <rect class="mouth" x="7" y="11" width="1" height="1" fill="#2B2118"/>
+
+  <g fill="#D7F0FF" fill-opacity="0.35" stroke="#7CC8F5" stroke-width="0.35">
+    <circle class="b" cx="9" cy="10" r="1"/>
+    <circle class="b b2" cx="8.5" cy="10" r="1.4"/>
+    <circle class="b b3" cx="9.5" cy="10" r="0.8"/>
+    <circle class="big" cx="7.5" cy="10" r="9.5"/>
+  </g>
+  <rect x="2" y="2.5" width="1.5" height="1.5" fill="#FFFFFF" class="big" opacity="0.8"/>
+  <g class="pop" fill="#7CC8F5">
+    <rect x="-3" y="2" width="1" height="1"/>
+    <rect x="17" y="2" width="1" height="1"/>
+    <rect x="-3" y="17" width="1" height="1"/>
+    <rect x="17" y="17" width="1" height="1"/>
+    <rect x="7" y="-1" width="1" height="1"/>
+  </g>
+</svg>

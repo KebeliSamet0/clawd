@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Stretch: arms up, body stretches tall, leans left then right, back to rest. 4s loop. -->
+  <defs>
+    <style>
+      .upper { transform-origin: 7.5px 15px; animation: lean 4s infinite ease-in-out; }
+      .torso { transform-origin: 7.5px 13px; animation: tall 4s infinite ease-in-out; }
+      .arm { animation: arm-up 4s infinite ease-in-out; }
+      .eyes { transform-origin: 7.5px 9px; animation: relax 4s infinite ease-in-out; }
+
+      @keyframes lean {
+        0%, 30% { transform: rotate(0deg); }
+        42%, 50% { transform: rotate(-10deg); }
+        62%, 70% { transform: rotate(10deg); }
+        82%, 100% { transform: rotate(0deg); }
+      }
+      @keyframes tall {
+        0%, 12%, 90%, 100% { transform: scaleY(1); }
+        24%, 78% { transform: scaleY(1.12); }
+      }
+      @keyframes arm-up {
+        0%, 12%, 90%, 100% { y: 9px; height: 2px; }
+        24%, 78% { y: 1px; height: 10px; }
+      }
+      @keyframes relax {
+        0%, 18%, 86%, 100% { transform: scaleY(1); }
+        26%, 78% { transform: scaleY(0.2); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+  </g>
+
+  <g class="upper" fill="#DE886D">
+    <rect class="arm" x="0" y="9" width="2" height="2"/>
+    <rect class="arm" x="13" y="9" width="2" height="2"/>
+    <g class="torso">
+      <rect x="2" y="6" width="11" height="7"/>
+      <g class="eyes" fill="#000000">
+        <rect x="4" y="8" width="1" height="2"/>
+        <rect x="10" y="8" width="1" height="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

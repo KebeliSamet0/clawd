@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Fire: turns red from the spicy food and breathes cartoon fire, then steam puffs out. 3s loop. -->
+  <defs>
+    <style>
+      .flush { animation: flush 3s infinite; }
+      .shake { animation: shake 0.2s infinite steps(2, end); }
+      .eyes { transform-origin: 7.5px 9px; animation: squeeze 3s infinite; }
+      .mouth { transform-origin: 7.5px 11px; animation: open 3s infinite; }
+      .flames { transform-origin: 13px 10.5px; animation: blast 3s infinite; }
+      .flicker { transform-origin: 13px 10.5px; animation: flicker 0.18s infinite steps(2, end); }
+      .steam { opacity: 0; animation: steam 3s infinite; }
+      .s2 { animation-delay: 0.25s; }
+
+      @keyframes flush {
+        0%, 8% { fill: #DE886D; }
+        18%, 80% { fill: #EF5B45; }
+        100% { fill: #DE886D; }
+      }
+      @keyframes shake {
+        0%, 100% { transform: translateX(-0.25px); }
+        50% { transform: translateX(0.25px); }
+      }
+      @keyframes squeeze {
+        0%, 12%, 84%, 100% { transform: scaleY(1); }
+        16%, 80% { transform: scaleY(0.3); }
+      }
+      @keyframes open {
+        0%, 18%, 74%, 100% { transform: scaleY(0); }
+        22%, 70% { transform: scaleY(1); }
+      }
+      @keyframes blast {
+        0%, 20% { transform: scale(0, 0.5); opacity: 0; }
+        28%, 66% { transform: scale(1, 1); opacity: 1; }
+        74%, 100% { transform: scale(1.2, 0.3); opacity: 0; }
+      }
+      @keyframes flicker {
+        0%, 100% { transform: scaleY(1); }
+        50% { transform: scaleY(0.8); }
+      }
+      @keyframes steam {
+        0%, 70% { opacity: 0; transform: translateY(0); }
+        76% { opacity: 0.8; }
+        96% { opacity: 0; transform: translateY(-6px); }
+        100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g class="shake">
+    <g class="flush" fill="#DE886D">
+      <rect x="3" y="13" width="1" height="2"/>
+      <rect x="5" y="13" width="1" height="2"/>
+      <rect x="9" y="13" width="1" height="2"/>
+      <rect x="11" y="13" width="1" height="2"/>
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+      <rect x="13" y="9" width="2" height="2"/>
+    </g>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+    <rect class="mouth" x="6" y="10.5" width="3" height="1.5" fill="#2B2118"/>
+  </g>
+
+  <!-- fire shoots out from the mouth toward the right -->
+  <g class="flames">
+    <g class="flicker">
+      <rect x="9" y="9.5" width="6" height="2" fill="#E8453C"/>
+      <rect x="15" y="8" width="5" height="5" fill="#FF7A2F"/>
+      <rect x="20" y="7" width="4" height="7" fill="#FF9F1C"/>
+      <rect x="16" y="9.5" width="7" height="2" fill="#FFD23F"/>
+      <rect x="24" y="8.5" width="2" height="4" fill="#FFD23F"/>
+    </g>
+  </g>
+
+  <g fill="#C9D1DA">
+    <rect class="steam" x="4" y="3" width="2" height="2"/>
+    <rect class="steam s2" x="9" y="2" width="2" height="2"/>
+  </g>
+</svg>

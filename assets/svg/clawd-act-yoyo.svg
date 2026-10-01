@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Yoyo: two good throws, the third tangles the string; a "?" pops up. 4s loop. -->
+  <defs>
+    <style>
+      .string { animation: string 4s infinite ease-in-out; }
+      .yoyo { animation: yoyo 4s infinite ease-in-out; }
+      .tangle { animation: tangle 4s infinite steps(1, end); }
+      .ask { animation: ask 4s infinite steps(1, end); }
+      .eyes { animation: watch 4s infinite ease-in-out; }
+
+      @keyframes string {
+        0%, 30%, 60% { height: 0.5px; }
+        15%, 45% { height: 10px; }
+        70%, 96% { height: 5px; }
+        100% { height: 0.5px; }
+      }
+      @keyframes yoyo {
+        0%, 30%, 60% { transform: translateY(0); }
+        15%, 45% { transform: translateY(9.5px); }
+        70%, 96% { transform: translateY(4.5px); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes tangle {
+        0%, 69% { opacity: 0; }
+        70%, 96% { opacity: 1; }
+        97%, 100% { opacity: 0; }
+      }
+      @keyframes ask {
+        0%, 74% { opacity: 0; }
+        75%, 96% { opacity: 1; }
+        97%, 100% { opacity: 0; }
+      }
+      @keyframes watch {
+        0%, 30%, 60%, 100% { transform: translate(0.5px, -0.5px); }
+        15%, 45% { transform: translate(1px, 0.5px); }
+        75%, 96% { transform: translate(1px, 0); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+    <rect x="2" y="6" width="11" height="7"/>
+    <rect x="0" y="9" width="2" height="2"/>
+    <rect x="13" y="3" width="2" height="8"/>
+  </g>
+  <g class="eyes">
+    <rect x="4" y="8" width="1" height="2"/>
+    <rect x="10" y="8" width="1" height="2"/>
+  </g>
+
+  <rect class="string" x="16.35" y="3.5" width="0.3" height="0.5" fill="#5D6B79"/>
+  <rect x="15" y="3" width="2" height="0.5" fill="#5D6B79"/>
+  <g class="tangle" fill="#5D6B79">
+    <rect x="15.6" y="5" width="1.8" height="0.3"/>
+    <rect x="15.4" y="6" width="2.2" height="0.3"/>
+    <rect x="15.7" y="7" width="1.6" height="0.3"/>
+  </g>
+  <g class="yoyo">
+    <rect x="15.4" y="3.6" width="2.2" height="2.2" fill="#3D7BE0"/>
+    <rect x="15.4" y="4.55" width="2.2" height="0.3" fill="#1E3F7A"/>
+  </g>
+  <g class="ask" fill="#2B2118">
+    <rect x="6.5" y="1" width="2" height="0.7"/>
+    <rect x="8" y="1.5" width="0.7" height="1.3"/>
+    <rect x="7.2" y="2.6" width="0.7" height="1"/>
+    <rect x="7.2" y="4.2" width="0.7" height="0.7"/>
+  </g>
+</svg>

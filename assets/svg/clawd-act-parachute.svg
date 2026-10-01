@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Parachute: floats down under a little striped parachute, lands with a squash,
+       the parachute drifts off. 3s, plays once per drop (loops if held). -->
+  <defs>
+    <style>
+      .fall { animation: fall 3s infinite ease-out; }
+      .sway { transform-origin: 7.5px -6px; animation: sway 3s infinite ease-in-out; }
+      .canopy { transform-origin: 7.5px -7px; animation: drift 3s infinite ease-in; }
+      .land { transform-origin: 7.5px 15px; animation: land 3s infinite; }
+      .shadow { transform-origin: 7.5px 15.5px; animation: shadow 3s infinite ease-out; }
+
+      @keyframes fall {
+        0% { transform: translateY(-14px); }
+        60%, 100% { transform: translateY(0); }
+      }
+      @keyframes sway {
+        0% { transform: rotate(-8deg); }
+        20% { transform: rotate(7deg); }
+        40% { transform: rotate(-5deg); }
+        58%, 100% { transform: rotate(0deg); }
+      }
+      @keyframes drift {
+        0%, 64% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+        92%, 100% { transform: translate(9px, 9px) rotate(70deg); opacity: 0; }
+      }
+      @keyframes land {
+        0%, 58%, 76%, 100% { transform: scaleY(1); }
+        64% { transform: scale(1.08, 0.85); }
+      }
+      @keyframes shadow {
+        0% { transform: scaleX(0.3); opacity: 0.2; }
+        60%, 100% { transform: scaleX(1); opacity: 0.5; }
+      }
+    </style>
+  </defs>
+
+  <rect class="shadow" x="3" y="15" width="9" height="1"/>
+  <g class="fall">
+    <g class="sway">
+      <g class="canopy">
+        <rect x="4" y="-11" width="7" height="1" fill="#E8453C"/>
+        <rect x="2" y="-10" width="11" height="1" fill="#E8453C"/>
+        <rect x="1" y="-9" width="13" height="2" fill="#E8453C"/>
+        <rect x="5" y="-11" width="2" height="1" fill="#FFFAF2"/>
+        <rect x="8" y="-11" width="2" height="1" fill="#FFFAF2"/>
+        <rect x="4" y="-10" width="2" height="3" fill="#FFFAF2"/>
+        <rect x="9" y="-10" width="2" height="3" fill="#FFFAF2"/>
+        <g stroke="#7A6E62" stroke-width="0.3">
+          <line x1="1.2" y1="-7" x2="1" y2="9"/>
+          <line x1="13.8" y1="-7" x2="14" y2="9"/>
+          <line x1="6" y1="-7" x2="5" y2="6"/>
+          <line x1="9" y1="-7" x2="10" y2="6"/>
+        </g>
+      </g>
+      <g class="land">
+        <g fill="#DE886D">
+          <rect x="3" y="13" width="1" height="2"/>
+          <rect x="5" y="13" width="1" height="2"/>
+          <rect x="9" y="13" width="1" height="2"/>
+          <rect x="11" y="13" width="1" height="2"/>
+          <rect x="2" y="6" width="11" height="7"/>
+          <rect x="0" y="8" width="2" height="2"/>
+          <rect x="13" y="8" width="2" height="2"/>
+        </g>
+        <rect x="4" y="8" width="1" height="2"/>
+        <rect x="10" y="8" width="1" height="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

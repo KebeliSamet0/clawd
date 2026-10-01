@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Stamp: slams a stamp onto a sheet of paper and a green check appears ("tests passed"). 3s loop. -->
+  <defs>
+    <style>
+      .stamp { animation: slam 3s infinite; }
+      .arm { animation: arm 3s infinite; }
+      .check { animation: check 3s infinite; }
+      .hit { animation: hit 3s infinite; }
+      .eyes { animation: look 3s infinite ease-in-out; }
+      .body { transform-origin: 7.5px 15px; animation: squash 3s infinite; }
+
+      @keyframes slam {
+        0%, 22% { transform: translateY(0); }
+        30%, 46% { transform: translateY(7px); }
+        60%, 100% { transform: translateY(0); }
+      }
+      @keyframes arm {
+        0%, 22%, 60%, 100% { y: 3px; height: 8px; }
+        30%, 46% { y: 9px; height: 2px; }
+      }
+      @keyframes check {
+        0%, 30% { opacity: 0; }
+        32%, 92% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes hit {
+        0%, 29%, 40%, 100% { opacity: 0; }
+        31%, 37% { opacity: 1; }
+      }
+      @keyframes look {
+        0%, 100% { transform: translate(0.5px, 0); }
+        30%, 60% { transform: translate(1px, 0.5px); }
+      }
+      @keyframes squash {
+        0%, 28%, 40%, 100% { transform: scaleY(1); }
+        31% { transform: scaleY(0.93); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <!-- the paper -->
+  <rect x="15" y="11" width="7" height="4" fill="#FFFAF2"/>
+  <g fill="#C9BFB0">
+    <rect x="15" y="15" width="7" height="0.5"/>
+    <rect x="15.8" y="11.8" width="2" height="0.4"/>
+  </g>
+  <g class="check" fill="#3FB950">
+    <rect x="16.5" y="12.5" width="1" height="1"/>
+    <rect x="17.5" y="13.5" width="1" height="1"/>
+    <rect x="18.5" y="12.5" width="1" height="1"/>
+    <rect x="19.5" y="11.5" width="1" height="1"/>
+    <rect x="20.5" y="10.5" width="1" height="1"/>
+  </g>
+  <g class="hit" fill="#9AA5B1">
+    <rect x="13.5" y="10" width="1" height="0.5"/>
+    <rect x="22.5" y="10" width="1" height="0.5"/>
+    <rect x="18" y="8.5" width="0.5" height="1"/>
+  </g>
+
+  <g class="body">
+    <g fill="#DE886D">
+      <rect x="3" y="13" width="1" height="2"/>
+      <rect x="5" y="13" width="1" height="2"/>
+      <rect x="9" y="13" width="1" height="2"/>
+      <rect x="11" y="13" width="1" height="2"/>
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+      <rect class="arm" x="13" y="3" width="2" height="8"/>
+    </g>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+  </g>
+
+  <g class="stamp">
+    <rect x="16.5" y="0" width="3" height="1" fill="#6B4226"/>
+    <rect x="17.5" y="1" width="1" height="2" fill="#8B5A3C"/>
+    <rect x="15.5" y="3" width="5" height="1.5" fill="#E8453C"/>
+    <rect x="15" y="3" width="0.5" height="1" fill="#DE886D"/>
+  </g>
+</svg>

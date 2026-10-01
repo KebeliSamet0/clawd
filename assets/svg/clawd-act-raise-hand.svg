@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Raise hand: waves a raised hand holding a "!" card, hopping a little — "I need you". 2s loop. -->
+  <defs>
+    <style>
+      .hop { animation: hop 1s infinite steps(2, end); }
+      .wave { transform-origin: 14px 11px; animation: wave 1s infinite ease-in-out; }
+      .eyes { animation: look-up 2s infinite ease-in-out; }
+
+      @keyframes hop {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-0.5px); }
+      }
+      @keyframes wave {
+        0%, 100% { transform: rotate(-12deg); }
+        50% { transform: rotate(12deg); }
+      }
+      @keyframes look-up {
+        0%, 100% { transform: translate(0.5px, -0.5px); }
+        50% { transform: translate(0.5px, -1px); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+  </g>
+
+  <g class="hop">
+    <g fill="#DE886D">
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+    </g>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+    <g class="wave">
+      <rect x="13" y="2" width="2" height="9" fill="#DE886D"/>
+      <rect x="11" y="-4" width="6" height="6" fill="#FFFAF2"/>
+      <g fill="#2B2118">
+        <rect x="11" y="-4" width="6" height="0.5"/>
+        <rect x="11" y="1.5" width="6" height="0.5"/>
+        <rect x="11" y="-4" width="0.5" height="6"/>
+        <rect x="16.5" y="-4" width="0.5" height="6"/>
+      </g>
+      <rect x="13.5" y="-3" width="1" height="2.5" fill="#E8453C"/>
+      <rect x="13.5" y="0" width="1" height="1" fill="#E8453C"/>
+    </g>
+  </g>
+</svg>

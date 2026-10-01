@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Wait clock: sits, taps a foot and glances at a ticking clock ("this takes a while"). 4s loop. -->
+  <defs>
+    <style>
+      .hand { transform-origin: -6px 1px; animation: tick 4s infinite steps(8, end); }
+      .tap { animation: tap 0.6s infinite steps(2, end); }
+      .eyes { animation: glance 4s infinite ease-in-out; }
+      .dot { opacity: 0; animation: dots 1.8s infinite; }
+      .d2 { animation-delay: 0.3s; }
+      .d3 { animation-delay: 0.6s; }
+
+      @keyframes tick {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes tap {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-1px); }
+      }
+      @keyframes glance {
+        0%, 30%, 70%, 100% { transform: translate(0, 0); }
+        38%, 62% { transform: translate(-1px, -0.5px); }
+      }
+      @keyframes dots {
+        0%, 20% { opacity: 0; }
+        30%, 80% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <!-- sitting: body lowered, legs tucked -->
+  <g fill="#DE886D">
+    <rect x="3" y="14" width="1" height="1"/>
+    <rect x="5" y="14" width="1" height="1"/>
+    <rect x="9" y="14" width="1" height="1"/>
+    <rect class="tap" x="11" y="14" width="1" height="1"/>
+    <rect x="2" y="7" width="11" height="7"/>
+    <rect x="0" y="10" width="2" height="2"/>
+    <rect x="13" y="10" width="2" height="2"/>
+  </g>
+  <g class="eyes">
+    <rect x="4" y="9" width="1" height="2"/>
+    <rect x="10" y="9" width="1" height="2"/>
+  </g>
+
+  <!-- the clock -->
+  <rect x="-9.5" y="-2.5" width="7" height="7" fill="#2B2118"/>
+  <rect x="-9" y="-2" width="6" height="6" fill="#FFFAF2"/>
+  <rect x="-6.5" y="-3.5" width="1" height="1" fill="#2B2118"/>
+  <rect x="-6" y="0.75" width="2" height="0.5" fill="#2B2118"/>
+  <rect class="hand" x="-6.25" y="-1.2" width="0.5" height="2.2" fill="#E8453C"/>
+
+  <g fill="#9AA5B1">
+    <rect class="dot" x="5" y="3" width="1" height="1"/>
+    <rect class="dot d2" x="7" y="3" width="1" height="1"/>
+    <rect class="dot d3" x="9" y="3" width="1" height="1"/>
+  </g>
+</svg>

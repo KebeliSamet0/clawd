@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Dance: headphones on, bouncing to the beat, arms pumping, notes floating up. 2s loop. -->
+  <defs>
+    <style>
+      .groove { transform-origin: 7.5px 15px; animation: groove 1s infinite steps(4, end); }
+      .bounce { animation: bounce 0.5s infinite steps(2, end); }
+      .arm-l { animation: pump 1s infinite steps(2, end); }
+      .arm-r { animation: pump 1s infinite steps(2, end); animation-delay: -0.5s; }
+      .leg-a { animation: step 1s infinite steps(2, end); }
+      .leg-b { animation: step 1s infinite steps(2, end); animation-delay: -0.5s; }
+      .eyes { transform-origin: 7.5px 9px; animation: vibe 2s infinite; }
+      .note { opacity: 0; animation: note 2s infinite ease-out; }
+      .n2 { animation-delay: 0.7s; }
+      .n3 { animation-delay: 1.4s; }
+
+      @keyframes groove {
+        0%, 100% { transform: rotate(-6deg); }
+        50% { transform: rotate(6deg); }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-1px); }
+      }
+      @keyframes pump {
+        0%, 100% { y: 9px; height: 2px; }
+        50% { y: 4px; height: 7px; }
+      }
+      @keyframes step {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-1px); }
+      }
+      @keyframes vibe {
+        0%, 100% { transform: scaleY(0.3); }
+        50% { transform: scaleY(0.3); }
+      }
+      @keyframes note {
+        0% { opacity: 0; transform: translate(0, 0); }
+        15% { opacity: 1; }
+        100% { opacity: 0; transform: translate(3px, -10px); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect class="leg-a" x="3" y="13" width="1" height="2"/>
+    <rect class="leg-b" x="5" y="13" width="1" height="2"/>
+    <rect class="leg-a" x="9" y="13" width="1" height="2"/>
+    <rect class="leg-b" x="11" y="13" width="1" height="2"/>
+  </g>
+  <g class="groove">
+    <g class="bounce">
+      <g fill="#DE886D">
+        <rect x="2" y="6" width="11" height="7"/>
+        <rect class="arm-l" x="0" y="9" width="2" height="2"/>
+        <rect class="arm-r" x="13" y="9" width="2" height="2"/>
+      </g>
+      <g class="eyes">
+        <rect x="4" y="8" width="1" height="2"/>
+        <rect x="10" y="8" width="1" height="2"/>
+      </g>
+      <!-- headphones -->
+      <rect x="2.5" y="4" width="10" height="1" fill="#3D3D5C"/>
+      <rect x="2" y="4.5" width="1" height="2" fill="#3D3D5C"/>
+      <rect x="12" y="4.5" width="1" height="2" fill="#3D3D5C"/>
+      <rect x="1" y="6" width="2" height="3" fill="#FF5C8A"/>
+      <rect x="12" y="6" width="2" height="3" fill="#FF5C8A"/>
+    </g>
+  </g>
+
+  <g fill="#3D3D5C">
+    <g class="note"><rect x="15" y="4" width="1.5" height="1.2"/><rect x="16" y="1" width="0.5" height="3.5"/></g>
+    <g class="note n2"><rect x="-2" y="5" width="1.5" height="1.2"/><rect x="-1" y="2" width="0.5" height="3.5"/></g>
+    <g class="note n3"><rect x="17" y="7" width="1.5" height="1.2"/><rect x="18" y="4" width="0.5" height="3.5"/><rect x="18" y="4" width="1.5" height="0.5"/></g>
+  </g>
+</svg>

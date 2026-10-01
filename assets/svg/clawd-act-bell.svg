@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Bell: raises a bell and rings it ("done!"), then takes a little bow. 3s loop. -->
+  <defs>
+    <style>
+      .arm-up { animation: arm-up 3s infinite ease-in-out; }
+      .bell { transform-origin: 15.5px -1px; animation: ring 3s infinite ease-in-out; }
+      .bell-move { animation: bell-move 3s infinite ease-in-out; }
+      .waves { animation: waves 3s infinite; }
+      .upper { transform-origin: 7.5px 13px; animation: bow 3s infinite ease-in-out; }
+      .eyes { animation: look-down 3s infinite ease-in-out; }
+
+      @keyframes arm-up {
+        0%, 52%, 100% { y: 3px; height: 8px; }
+        62%, 92% { y: 9px; height: 2px; }
+      }
+      @keyframes bell-move {
+        0%, 52%, 100% { transform: translateY(0); opacity: 1; }
+        58% { opacity: 0; }
+        62%, 92% { transform: translateY(6px); opacity: 0; }
+      }
+      @keyframes ring {
+        0%, 4% { transform: rotate(0deg); }
+        8% { transform: rotate(22deg); }
+        14% { transform: rotate(-22deg); }
+        20% { transform: rotate(18deg); }
+        26% { transform: rotate(-18deg); }
+        32% { transform: rotate(10deg); }
+        38%, 100% { transform: rotate(0deg); }
+      }
+      @keyframes waves {
+        0%, 6% { opacity: 0; }
+        10%, 34% { opacity: 1; }
+        40%, 100% { opacity: 0; }
+      }
+      @keyframes bow {
+        0%, 62%, 92%, 100% { transform: scaleY(1); }
+        72%, 84% { transform: scaleY(0.82); }
+      }
+      @keyframes look-down {
+        0%, 62%, 92%, 100% { transform: translateY(0); }
+        72%, 84% { transform: translateY(1.5px); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+  </g>
+
+  <g class="upper">
+    <g fill="#DE886D">
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+      <rect class="arm-up" x="13" y="3" width="2" height="8"/>
+    </g>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+  </g>
+
+  <g class="bell-move">
+    <g class="bell">
+      <rect x="15" y="-2" width="1" height="1" fill="#B8860B"/>
+      <rect x="14" y="-1" width="3" height="1" fill="#FFD23F"/>
+      <rect x="13" y="0" width="5" height="2" fill="#FFD23F"/>
+      <rect x="12.5" y="2" width="6" height="1" fill="#F2B705"/>
+      <rect x="15" y="3" width="1" height="1" fill="#B8860B"/>
+    </g>
+    <g class="waves" fill="#FFB347">
+      <rect x="10" y="-1" width="1" height="2"/>
+      <rect x="8.5" y="-2" width="1" height="4"/>
+      <rect x="20" y="-1" width="1" height="2"/>
+      <rect x="21.5" y="-2" width="1" height="4"/>
+    </g>
+  </g>
+</svg>

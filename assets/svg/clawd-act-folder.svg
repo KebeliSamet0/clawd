@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Folder: POOF, disguises itself as a desktop folder (eyes peeking), POOF, back with a grin. 6s loop. -->
+  <defs>
+    <style>
+      .clawd { animation: clawd 6s infinite steps(1, end); }
+      .folder { animation: folder 6s infinite steps(1, end); }
+      .poof { transform-origin: 7.5px 10px; opacity: 0; animation: poof 6s infinite; }
+      .peek { transform-origin: 7.5px 11px; animation: peek 6s infinite; }
+      .eyes { transform-origin: 7.5px 9px; animation: grin 6s infinite; }
+
+      @keyframes clawd { 0%, 17% { opacity: 1; } 18%, 79% { opacity: 0; } 80%, 100% { opacity: 1; } }
+      @keyframes folder { 0%, 17% { opacity: 0; } 18%, 79% { opacity: 1; } 80%, 100% { opacity: 0; } }
+      @keyframes poof {
+        0%, 14% { opacity: 0; transform: scale(0.4); }
+        17% { opacity: 1; transform: scale(1); }
+        22% { opacity: 0; transform: scale(1.3); }
+        76% { opacity: 0; transform: scale(0.4); }
+        79% { opacity: 1; transform: scale(1); }
+        84%, 100% { opacity: 0; transform: scale(1.3); }
+      }
+      @keyframes peek {
+        0%, 30%, 34%, 50%, 54%, 100% { transform: scaleY(1); }
+        32%, 52% { transform: scaleY(0.1); }
+      }
+      @keyframes grin {
+        0%, 82%, 100% { transform: scaleY(1); }
+        84%, 96% { transform: scaleY(0.3); }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g class="clawd">
+    <g fill="#DE886D">
+      <rect x="3" y="13" width="1" height="2"/>
+      <rect x="5" y="13" width="1" height="2"/>
+      <rect x="9" y="13" width="1" height="2"/>
+      <rect x="11" y="13" width="1" height="2"/>
+      <rect x="2" y="6" width="11" height="7"/>
+      <rect x="0" y="9" width="2" height="2"/>
+      <rect x="13" y="9" width="2" height="2"/>
+    </g>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+  </g>
+
+  <g class="folder">
+    <rect x="1" y="4.5" width="5" height="1.5" fill="#E0A82E"/>
+    <rect x="1" y="5.5" width="13" height="9.5" fill="#E0A82E"/>
+    <rect x="1" y="7.5" width="13" height="7.5" fill="#FFCF5C"/>
+    <rect x="1" y="7.5" width="13" height="0.5" fill="#FFE08F"/>
+    <g class="peek">
+      <rect x="5" y="10.5" width="1" height="1.2"/>
+      <rect x="9" y="10.5" width="1" height="1.2"/>
+    </g>
+    <rect x="2" y="16.5" width="11" height="1.6" fill="#FFFFFF" opacity="0.85"/>
+    <rect x="3" y="17" width="9" height="0.6" fill="#5D6B79"/>
+  </g>
+
+  <g class="poof" fill="#F1F1F1">
+    <rect x="1" y="5" width="13" height="10"/>
+    <rect x="-1" y="7" width="17" height="6"/>
+    <rect x="3" y="3" width="9" height="14"/>
+    <rect x="-2" y="4" width="3" height="3" fill="#D9D9D9"/>
+    <rect x="14" y="13" width="3" height="3" fill="#D9D9D9"/>
+  </g>
+</svg>

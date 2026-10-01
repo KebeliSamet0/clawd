@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <!-- Eat: three bites of a cookie (crumbs fall), chews, wipes its mouth, happy eyes. 4s loop. -->
+  <defs>
+    <style>
+      .lean { transform-origin: 7.5px 15px; animation: lean 4s infinite ease-in-out; }
+      .bite1 { animation: bite1 4s infinite; }
+      .bite2 { animation: bite2 4s infinite; }
+      .bite3 { animation: bite3 4s infinite; }
+      .mouth { transform-origin: 7.5px 11.5px; animation: chew 4s infinite; }
+      .wipe { animation: wipe 4s infinite ease-in-out; }
+      .eyes { transform-origin: 7.5px 9px; animation: happy 4s infinite; }
+      .crumb { opacity: 0; animation: crumb 4s infinite; }
+      .c2 { animation-delay: 0.8s; }
+      .c3 { animation-delay: 1.6s; }
+
+      @keyframes lean {
+        0%, 8%, 20%, 28%, 40%, 48%, 60%, 100% { transform: rotate(0deg); }
+        14%, 34%, 54% { transform: rotate(9deg); }
+      }
+      @keyframes bite1 { 0%, 14% { opacity: 1; } 15%, 97% { opacity: 0; } 100% { opacity: 1; } }
+      @keyframes bite2 { 0%, 34% { opacity: 1; } 35%, 97% { opacity: 0; } 100% { opacity: 1; } }
+      @keyframes bite3 { 0%, 54% { opacity: 1; } 55%, 97% { opacity: 0; } 100% { opacity: 1; } }
+      @keyframes chew {
+        0%, 12%, 64%, 100% { transform: scaleY(0); }
+        16%, 24%, 36%, 44%, 56% { transform: scaleY(1); }
+        20%, 28%, 40%, 48%, 60% { transform: scaleY(0.3); }
+      }
+      @keyframes wipe {
+        0%, 64%, 84%, 100% { transform: translate(0, 0); }
+        70% { transform: translate(5px, 1px); }
+        76% { transform: translate(8px, 1px); }
+      }
+      @keyframes happy {
+        0%, 84%, 100% { transform: scaleY(1); }
+        86%, 98% { transform: scaleY(0.25); }
+      }
+      @keyframes crumb {
+        0%, 14% { opacity: 0; transform: translate(0, 0); }
+        16% { opacity: 1; }
+        28% { opacity: 0; transform: translate(0.5px, 5px); }
+        100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="3" y="15" width="9" height="1" opacity="0.5"/>
+  <g fill="#DE886D">
+    <rect x="3" y="13" width="1" height="2"/>
+    <rect x="5" y="13" width="1" height="2"/>
+    <rect x="9" y="13" width="1" height="2"/>
+    <rect x="11" y="13" width="1" height="2"/>
+  </g>
+
+  <g class="lean">
+    <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+    <g class="eyes">
+      <rect x="4" y="8" width="1" height="2"/>
+      <rect x="10" y="8" width="1" height="2"/>
+    </g>
+    <rect class="mouth" x="6.5" y="11" width="2" height="1" fill="#2B2118"/>
+    <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+    <!-- the cookie, eaten from the left column to the right -->
+    <g fill="#C68642">
+      <rect class="bite1" x="14" y="6" width="1" height="3"/>
+      <rect class="bite2" x="15" y="5.5" width="1" height="4"/>
+      <rect class="bite3" x="16" y="6" width="1" height="3"/>
+    </g>
+    <g fill="#5C3A1E">
+      <rect class="bite2" x="15" y="6.5" width="0.6" height="0.6"/>
+      <rect class="bite3" x="16.2" y="7.8" width="0.6" height="0.6"/>
+    </g>
+  </g>
+  <rect class="wipe" x="0" y="9" width="2" height="2" fill="#DE886D"/>
+
+  <g fill="#C68642">
+    <rect class="crumb" x="13.5" y="9" width="0.6" height="0.6"/>
+    <rect class="crumb c2" x="14.5" y="9.5" width="0.6" height="0.6"/>
+    <rect class="crumb c3" x="15.5" y="9" width="0.6" height="0.6"/>
+  </g>
+</svg>
